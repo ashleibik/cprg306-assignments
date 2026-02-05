@@ -6,15 +6,15 @@ export default function NewItem() {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
-
   const [nameTouched, setNameTouched] = useState(false);
 
   const isNameValid = name.trim().length >= 2;
+  const isFormValid = isNameValid;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!name.trim() || name.trim().length < 2) {
+    if (!isNameValid) {
       setNameTouched(true);
       alert("Item name must be at least 2 characters.");
       return;
@@ -27,36 +27,49 @@ export default function NewItem() {
     };
 
     console.log(item);
-    alert(`Added item:\nName: ${item.name}\nQuantity: ${item.quantity}\nCategory: ${item.category}`);
+    alert(
+      `Added item:\nName: ${item.name}\nQuantity: ${item.quantity}\nCategory: ${item.category}`
+    );
 
+    // reset form
     setName("");
     setQuantity(1);
     setCategory("produce");
     setNameTouched(false);
   };
 
-  const isFormValid = isNameValid;
-
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-5 rounded-xl shadow space-y-4 max-w-md">
+    <form
+      onSubmit={handleSubmit}
+      autoComplete="off"
+      className="bg-white p-5 rounded-xl shadow space-y-4 max-w-md"
+    >
+      {/* Item Name */}
       <div>
         <label className="block font-semibold mb-1">Item Name</label>
         <input
           type="text"
+          name="itemName"
+          autoComplete="off"
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
           onBlur={() => setNameTouched(true)}
           className={`w-full border p-2 rounded ${
-            !isNameValid && nameTouched ? "border-red-500" : "border-gray-300"
+            !isNameValid && nameTouched
+              ? "border-red-500"
+              : "border-gray-300"
           }`}
           placeholder="e.g. Apples"
         />
         {!isNameValid && nameTouched && (
-          <p className="text-red-500 text-sm mt-1">Name must be at least 2 characters.</p>
+          <p className="text-red-500 text-sm mt-1">
+            Name must be at least 2 characters.
+          </p>
         )}
       </div>
 
+      {/* Quantity */}
       <div>
         <label className="block font-semibold mb-1">Quantity</label>
         <input
@@ -70,6 +83,7 @@ export default function NewItem() {
         />
       </div>
 
+      {/* Category */}
       <div>
         <label className="block font-semibold mb-1">Category</label>
         <select
@@ -91,6 +105,7 @@ export default function NewItem() {
         </select>
       </div>
 
+      {/* Submit Button */}
       <button
         type="submit"
         disabled={!isFormValid}

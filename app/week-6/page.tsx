@@ -13,7 +13,7 @@ export default function Page() {
     quantity: number;
     category: string;
   }) {
-    setItems((prev) => [...prev, item]);
+    setItems((prev) => [...prev, { id: Date.now().toString(), ...item }]);
   }
 
   return (

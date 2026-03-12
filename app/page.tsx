@@ -11,28 +11,40 @@ export default function Home() {
             Week 2
           </Link>
         </li>
+
         <li>
           <Link className="text-blue-600 underline" href="/week-3">
             Week 3
           </Link>
         </li>
+
         <li>
           <Link className="text-blue-600 underline" href="/week-4">
             Week 4
           </Link>
         </li>
 
-        {/* ✅ Add this */}
         <li>
           <Link className="text-blue-600 underline" href="/week-5">
             Week 5
           </Link>
         </li>
+
         <li>
-       <Link className="text-blue-600 underline" href="/week-6">
-    Week 6
-     </Link>
-      </li>
+          <Link className="text-blue-600 underline" href="/week-6">
+            Week 6
+          </Link>
+        </li>
+         <li>
+          <Link className="text-blue-600 underline" href="/week-7">
+            Week 7
+          </Link>
+        </li>
+        <li>
+          <Link className="text-blue-600 underline" href="/week-8">
+            Week 8
+          </Link>
+        </li>
       </ul>
     </main>
   );

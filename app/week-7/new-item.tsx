@@ -95,9 +95,9 @@ export default function NewItem({
           <option value="dairy">Dairy</option>
           <option value="bakery">Bakery</option>
           <option value="meat">Meat</option>
-          <option value="frozen foods">Frozen Foods</option>
-          <option value="canned goods">Canned Goods</option>
-          <option value="dry goods">Dry Goods</option>
+          <option value="frozen">Frozen Foods</option>
+          <option value="canned">Canned Goods</option>
+          <option value="dry">Dry Goods</option>
           <option value="beverages">Beverages</option>
           <option value="snacks">Snacks</option>
           <option value="household">Household</option>
@@ -109,8 +109,7 @@ export default function NewItem({
       <button
         type="submit"
         disabled={!isFormValid}
-        className="w-full bg-blue-600 text-white font-semibold py-2 rounded
-                   hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
+        className="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
       >
         Add Item
       </button>
